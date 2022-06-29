@@ -1,23 +1,26 @@
 from lib.common.utils import get_args
 from lib.twitter_scraper.sync_tw import Sync
 
+
 """
-Get running params
+Usage: main.py --account_to_scrape={account_username} --task={task}
 
 account_to_scrape: the targetd account username
 
 task: ("message" | "comment" ) either you want to message the followers or comment on their tweets (leave it empty if just you want to scrape followers)
-""" 
+"""
+
+
+
+#Get running params
 args = get_args()
 
-"""
-Initiate the scraper
-""" 
+
+#Initiate the scraper
 scraper = Sync()
 
-"""
-Run the script
-""" 
+
+#Run the script
 if args["account_to_scrape"]:
 	scraper.scrape_followers(args["account_to_scrape"])    
 else:
